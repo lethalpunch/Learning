@@ -1,0 +1,38 @@
+package test;
+
+public class MainExecuter {
+public static void main(String arg[])
+{
+	final LimitStringObject lso=new LimitStringObject(2);
+	for(int i=0;i<4;i++)
+	{
+		
+		Runnable r=new Runnable() {
+			
+			public void run() {
+				// TODO Auto-generated method stub
+				try {
+					StringBuffer bufferStr=lso.acquireBufferObject();
+					if(bufferStr==null)
+					{
+						Thread.sleep(100);
+						while(bufferStr!=null){
+						bufferStr=lso.acquireBufferObject();
+						}
+					}
+					bufferStr.append("THREAD ACCESSING ");
+					Thread.sleep(100);
+					System.out.println(bufferStr);
+					lso.releaseBufferObject(bufferStr);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		};
+		
+		Thread th=new Thread(r);
+		th.start();
+	}
+}
+}

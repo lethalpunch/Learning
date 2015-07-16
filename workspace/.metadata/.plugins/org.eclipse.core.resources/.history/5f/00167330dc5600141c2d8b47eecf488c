@@ -1,0 +1,48 @@
+package Algirithms.Sort;
+
+public class MereSort {
+	int[] arrayToSort=null;
+	int[] helperArray=null;
+public void Sort(int init, int last){
+	if(init<last)
+	{
+		int middle=(init + last)/2;
+		Sort(init, middle);
+		Sort(middle+1,last);
+	}
+}
+
+public void mergeResult(int init, int middle, int last)
+{
+	for(int i=init;i<=last;i++){
+		helperArray[i]=arrayToSort[i];
+	}
+	int i=init;
+	int j=middle+1;
+	int k=init;
+	while(i<=middle && j<=last){
+		if(helperArray[i]<helperArray[j]){
+			arrayToSort[k]=helperArray[i];
+			i++;
+		}
+		else{
+			arrayToSort[k]=helperArray[j];
+			j++;
+		}
+		k++;
+	}
+	
+	while(i<=middle){
+		arrayToSort[k]=helperArray[i];
+		i++;
+		k++;
+	}
+	
+	while(j<=last){
+		arrayToSort[k]=helperArray[j];
+		j++;
+		k++;
+	}
+}
+
+}
