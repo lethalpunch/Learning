@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;Algirithms.Sort.MatrixMultiplication.sTRASSEANaLGORITHM&apos; to &apos;StrasseanAlgorithm&apos;&#x0D;&#x0A;- Original project: &apos;DataStructures&apos;&#x0D;&#x0A;- Original element: &apos;Algirithms.Sort.MatrixMultiplication.sTRASSEANaLGORITHM&apos;&#x0D;&#x0A;- Renamed element: &apos;Algirithms.Sort.MatrixMultiplication.StrasseanAlgorithm&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;sTRASSEANaLGORITHM&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;Algirithms.Sort.MatrixMultiplication{sTRASSEANaLGORITHM.java[sTRASSEANaLGORITHM" matchStrategy="1" name="StrasseanAlgorithm" qualified="false" references="true" similarDeclarations="false" stamp="1414264272761" textual="false" version="1.0"/>
-</session>

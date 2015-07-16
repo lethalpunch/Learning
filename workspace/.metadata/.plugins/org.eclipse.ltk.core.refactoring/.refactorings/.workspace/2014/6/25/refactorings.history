@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;CyclicBarrier&apos; to &apos;Exchanger&apos;" description="Rename resource &apos;CyclicBarrier&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/CyclicBarrier" name="Exchanger" stamp="1402809097284" updateReferences="true"/>
-</session>
