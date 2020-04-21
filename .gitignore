@@ -3,7 +3,6 @@
 #################
 
 *.pydevproject
-.project
 .metadata
 bin/
 tmp/
@@ -12,7 +11,6 @@ tmp/
 *.swp
 *~.nib
 local.properties
-.classpath
 .settings/
 .loadpath
 
@@ -227,5 +225,6 @@ Servers/Pivotal tc Server Developer Edition v3.2-config/web.xml
 workspace/.metadata/.log
 workspace/.metadata/.log
 workspace/Servers/Pivotal tc Server Developer Edition v3.2-config/*
-*.classpath
+
 workspace/Servers/Pivotal tc Server Developer Edition v4.0-config/*
+workspace/Servers/.project
