@@ -228,3 +228,4 @@ workspace/Servers/Pivotal tc Server Developer Edition v3.2-config/*
 
 workspace/Servers/Pivotal tc Server Developer Edition v4.0-config/*
 workspace/Servers/.project
+workspace/RemoteSystemsTempFiles/.project
