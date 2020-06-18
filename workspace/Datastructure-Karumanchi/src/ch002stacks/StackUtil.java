@@ -86,5 +86,76 @@ public class StackUtil {
 	stack.push("C");
 	reverseStack(stack);
 	System.out.println(stack);
+	int[] inputArr = {6,3,2,4,5,2};
+	int[] spans = findingSpansBruteForce(inputArr);
+	for (Integer i : spans) {
+	    System.out.print(i + ", ");
+	}
+	System.out.println();
+	spans = findingSpansUsingStack(inputArr);
+	for (Integer i : spans) {
+	    System.out.print(i + ", ");
+	}
+	System.out.println();
+	int[] A = { 3, 2, 5, 6, 1, 4, 4 };
+	System.out.println("max Area of histograms : " + maxRectangleAreaInHistogram(A));
+    }
+    
+    public static int[] findingSpansBruteForce(int[] inputArray) {
+	int[] spans = new int[inputArray.length];
+	for (int i = 0; i < inputArray.length; i++) {
+	    int span = 1;
+	    int j = i - 1;
+	    while (j >= 0 && inputArray[j] <= inputArray[i]) {
+		span++;
+		j--;
+	    }
+	    spans[i] = span;
+	}
+	return spans;
+    }
+    
+    public static int[] findingSpansUsingStack(int[] inputArray) {
+	int[] spans = new int[inputArray.length];
+	Stack<Integer> stack = new Stack<>();
+	int p = 0;
+	for (int i = 0; i < inputArray.length; i++) {
+	    while (!stack.isEmpty() && inputArray[i] > inputArray[stack.peek()]) {
+		stack.pop();
+	    }
+	    if (stack.isEmpty()) {
+		p = -1;
+	    } else {
+		p = stack.peek();
+	    }
+	    spans[i] = i - p;
+	    stack.push(i);
+	}
+	return spans;
+    }
+    
+    public static int maxRectangleAreaInHistogram(int[] A) {
+	Stack<Integer> stack = new Stack<>();
+	if (A == null || A.length == 0) {
+	    return 0;
+	}
+
+	int maxArea = 0;
+	int i = 0;
+	while (i < A.length) {
+	    if (stack.isEmpty() || A[stack.peek()] <= A[i]) {
+		stack.push(i++);
+	    } else {
+		int top = stack.pop();
+		maxArea = Math.max(maxArea, A[top] * (stack.isEmpty() ? i : i - stack.peek() - 1));
+	    }
+	}
+
+	while (!stack.isEmpty()) {
+	    int top = stack.pop();
+	    maxArea = Math.max(maxArea, A[top] * (stack.isEmpty() ? i : i - stack.peek() - 1));
+	}
+
+	return maxArea;
     }
 }
