@@ -1,7 +1,10 @@
 package ch006Trees.binaryTrees;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BinaryTreeUtil {
@@ -95,14 +98,31 @@ public class BinaryTreeUtil {
 		return result;
 	}
 	
+	public static List<Integer> levelOrderTraversal(BinaryTreeNode root) {
+		List<Integer> result  = new ArrayList<>();
+		LinkedList<BinaryTreeNode> ll = new LinkedList<>();
+		ll.offer(root);
+		while(!ll.isEmpty()) {
+			BinaryTreeNode curr = ll.poll();
+			result.add(curr.data);
+			if (curr.left != null) {
+				ll.offer(curr.left);
+			}
+			if (curr.right != null) {
+				ll.offer(curr.right);
+			}
+		}
+		return result;
+	}
+	
 	public static void main(String...strings) {
 		BinaryTreeNode root = new BinaryTreeNode(1);
 		root.left = new BinaryTreeNode(2);
 		root.right = new BinaryTreeNode(3);
 		root.left.left = new BinaryTreeNode(4);
 		root.left.right = new BinaryTreeNode(5);
-		List<Integer> rs = postorderTraversalViaIteration(root);
-		postorderTraversalViaRecursion(root);
+		List<Integer> rs = levelOrderTraversal(root);
+		System.out.println(rs);
 	}
 
 }
